@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cosmic Travelers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      .slideshow {
+          width: 100%;
+          max-width: 600px; /* Adjust to your desired width */
+          overflow: hidden;
+          position: relative;
+      }
+
+      .slideshow img {
+            width: 100%;
+            height: 300px; /* Set your desired height here */
+            object-fit: cover; /* Maintain aspect ratio and cover the container */
+            display: none;
+      }
+    </style>
   </head>
   <body>
+    
     
 <!-- Navbar -->
 
@@ -29,7 +47,37 @@
   </nav>
 
 <!-- Carousel -->
-<div id="carouselExampleIndicators" class="carousel slide">
+
+<!-- <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="slideshow">
+    <img src="images/saturn.jpg" class="d-block w-100 h-50" alt="Image 1 ">
+    <img src="images/asteroid belt.jpg" class="d-block w-100 h-50" alt="Image 2">
+    <img src="images/rocketship.jpg" class="d-block w-100 h-50" alt="Image 3">
+    <img src="images/wormhole.jpg" class="d-block w-100 h-50" alt="Image 4">
+    <img src="images/universe.jpg" class="d-block w-100 h-50" alt="Image 5">
+    <img src="images/crescent.jpg" class="d-block w-100 h-50" alt="Image 6">
+    <img src="images/sun.jpg" class="d-block w-100 h-50" alt="Image 7">
+    <img src="images/crescent.jpg" class="d-block w-100 h-50" alt="Image 8">
+    <img src="images/asteroids.jpg" class="d-block w-100 h-50" alt="Image 9">
+
+    Add more images as needed 
+</div> -->
+
+<script>
+    // JavaScript code to auto-scroll the images
+    let currentImageIndex = 0;
+    const images = document.querySelectorAll('.slideshow img');
+
+    function startAutoScroll() {
+        setInterval(function () {
+            images[currentImageIndex].style.display = 'none';
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].style.display = 'block';
+        }, 3000); // Change the time interval (in milliseconds) for image transition
+    }
+
+    startAutoScroll(); // Start the auto-scrolling when the page loads
+</script>
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -40,32 +88,49 @@
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
   </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="images/saturn.jpg" class="d-block w-100" alt="saturn">
-    </div>
-    <div class="carousel-item">
-      <img src="images/asteroid belt.jpg" class="d-block w-100" alt="asteroids">
-    </div>
-    <div class="carousel-item">
-      <img src="images/rocketship.jpg" class="d-block w-100" alt="rocketship">
-    </div>
-    <div class="carousel-item">
-      <img src="images/wormhole.jpg" class="d-block w-100" alt="wormhole">
-    </div>
-    <div class="carousel-item">
-      <img src="images/universe.jpg" class="d-block w-100" alt="universe">
-    </div>
-    <div class="carousel-item">
-      <img src="images/crescent.jpg" class="d-block w-100" alt="crescent">
-    </div>
-    <div class="carousel-item">
-      <img src="images/sun.jpg" class="d-block w-100" alt="sun">
-    </div>
-    <div class="carousel-item">
-      <img src="images/asteroids.jpg" class="d-block w-100" alt="asteroid">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="images/saturn.jpg" class="d-block w-100 h-50" alt="saturn">
+      </div>
+      <div class="carousel-item">
+        <img src="images/asteroid belt.jpg" class="d-block w-100 h-50" alt="asteroids">
+      </div>
+      <div class="carousel-item">
+        <img src="images/rocketship.jpg" class="d-block w-100 h-50" alt="rocketship">
+      </div>
+      <div class="carousel-item">
+        <img src="images/wormhole.jpg" class="d-block w-100 h-50" alt="wormhole">
+      </div>
+      <div class="carousel-item">
+        <img src="images/universe.jpg" class="d-block w-100 h-50" alt="universe">
+      </div>
+      <div class="carousel-item">
+        <img src="images/crescent.jpg" class="d-block w-100 h-50" alt="crescent">
+      </div>
+      <div class="carousel-item">
+        <img src="images/sun.jpg" class="d-block w-100 h-50" alt="sun">
+      </div>
+      <div class="carousel-item">
+        <img src="images/asteroids.jpg" class="d-block w-100 h-50" alt="asteroid">
+      </div>
     </div>
   </div>
+
+  <script>
+    // JavaScript code for auto-scrolling the carousel
+    let currentSlideIndex = 0;
+    const carouselItems = document.querySelectorAll('.carousel-item');
+
+    function nextSlide() {
+        carouselItems[currentSlideIndex].classList.remove('active');
+        currentSlideIndex = (currentSlideIndex + 1) % carouselItems.length;
+        carouselItems[currentSlideIndex].classList.add('active');
+    }
+
+    // Automatically change slides every 3 seconds (adjust as needed)
+    setInterval(nextSlide, 3000);
+</script>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -83,7 +148,14 @@
 <div class="container">
   <h1 class="text-center p-5 mb-5 mt-5">Visit Our Solar System Today!</h1>
 
-  <div class = "w-100 bg-dark-subtle p-5 mb-5">
+  <div class = "w-100 h-100 bg-dark-subtle p-5 mb-5">
+
+    <div class="row">
+      <div class="col">
+        <img src="brochures/General Brochure Front.jpg" alt="general front" width="1200" height="500">
+
+
+    </div>
     <p>
       Welcome to the portal that will ignite your imagination and propel you into the boundless wonders of space travel.
       Prepare to defy gravity, explore distant galaxies, and witness the mysteries of the cosmos up close. 
@@ -95,8 +167,19 @@
       It's time to set your course for the great unknown and embark on a voyage that will expand your horizons and leave you starstruck. 
       Welcome to the future of space travel. Welcome to infinity and beyond.
     </p>
-    <button type="button" class="btn btn-primary btn-lg">Book Your Trip Now</button>
+    <button type="button" class="btn btn-primary btn-lg" button id="myButton" onclick="redirectToWebsite()">Book Your Trip Now</button>
+    <script>
+      // Get a reference to the button element by its id
+      const button = document.getElementById("myButton");
+    
+      // Add a click event listener to the button
+      button.addEventListener("click", function() {
+        // Change the current page's URL to the desired website
+        window.location.href = "booking.html"; // Replace with the URL you want to go to
+      });
+    </script>
   </div>
+</div>
 
   <h2 id="destinations" class="fs-1 p-5 mt-5 mb-5 text-center">POPULAR DESTINATIONS</h2>
 
@@ -104,15 +187,10 @@
     <div class="col">
       <!--card 1-->
       <div class="card">
-        <img src="images/clear moon.jpg" class="card-img-top" alt="clear moon">
-        <div class="card-body">
-          <h5 class="card-title">The Moon</h5>
-          <p class="card-text">The moon, Earth's celestial companion, has fascinated us for millennia. 
-            Its phases and silver glow inspire wonder. 
-            From ancient myths to modern missions, it fuels curiosity about its origins.
-            Experince the earth's breathtaking views from the moon. 
-            While the Moon's volcanic activity has ceased, it has numerous ancient volcanic features, including shield volcanoes and lava plains. 
-            Some of these volcanic structures are much larger than those found on Earth.</p>
+        <img src="images/clear moon.jpg" class="card-img-top" alt="clear moon" width="300" height="200">
+        <div class="card-body" >
+          <h5 class="card-title">Earth's Moon</h5>
+          <p class="card-text">The Moon, Earth's enduring companion, holds myriad secrets. It's the sole celestial body humans have treaded upon through the historic Apollo missions. Notably, the Moon's synchronous rotation always presents the same face, the "near side." Its barren surface bears vast impact craters, devoid of atmosphere, sound, or weather. Curiously, moonquakes occasionally jolt the lunar terrain. The Moon significantly influences Earth's tides and stabilizes our planet's axial tilt. Moonlight is merely reflected sunlight, casting an enchanting glow on moonlit nights. With its distinctive traits and historical importance, the Moon remains an endless source of fascination, igniting our curiosity and exploration.</p>
           <a href="#" class="btn btn-primary">Read more</a>
         </div>
       </div>
@@ -121,12 +199,10 @@
     <div class="col">
       <!--card 2-->
       <div class="card">
-        <img src="images/mars.jpg" class="card-img-top" alt="Mars">
-        <div class="card-body">
+        <img src="images/mars.jpg" class="card-img-top" alt="Mars" width="300" height="200">
+        <div class="card-body" >
           <h5 class="card-title">Mars</h5>
-          <p class="card-text">Mars, the Red Planet, beckons with its rusty allure. 
-            A target for human exploration, it intrigues scientists and dreamers alike. 
-            Its barren landscapes hide mysteries, and it's the next frontier in our quest for understanding and potential colonization.</p>
+          <p class="card-text">Mars, the Red Planet, presents a host of captivating facts. Foremost, it harbors the solar system's tallest volcano, Olympus Mons, surpassing Mount Everest in grandeur. Mars features Valles Marineris, an expansive canyon system that could span the entire United States. In 2003, it had a close "opposition" with Earth, an event not seen in 60,000 years. Similar to Earth, Mars experiences changing seasons due to its axial tilt. Evidenced by ancient river valleys and lake beds, water once flowed on its surface. Despite its inhospitable carbon dioxide-rich atmosphere, the prospect of future colonization fuels scientific interest and captivates space enthusiasts, making Mars a perennial focus of exploration.</p>
           <a href="#" class="btn btn-primary">Read more</a>
         </div>
       </div>
@@ -136,12 +212,10 @@
     <div class="col">
       <!--card 3-->
       <div class="card">
-        <img src="images/zero gravity experience.jpg" class="card-img-top" alt="floating in space">
-        <div class="card-body">
-          <h5 class="card-title">Zero Gravity</h5>
-          <p class="card-text">Experiencing zero gravity in space is nothing short of exhilarating. 
-            Astronauts float effortlessly, objects hover, and everyday activities become extraordinary. 
-            It's a sensation that defies gravity and ignites the sense of wonder.</p>
+        <img src="images/zero gravity experience.jpg" class="card-img-top" alt="floating in space" width="300" height="200">
+        <div class="card-body" >
+          <h5 class="card-title">Open Space</h5>
+          <p class="card-text">Space exploration and zero gravity provide remarkable insights into the cosmos and the human body's adaptation to weightlessness. In the absence of gravity, traditional concepts of direction blur as objects float freely. Astronauts aboard the International Space Station (ISS) adapt with unique lifestyles, consuming floating water blobs and rigorous exercise to combat muscle and bone loss. Unexpectedly, gravity's absence can lead to spinal elongation, making astronauts taller, while taste changes reduce food flavor. The breathtaking Earth view from orbit, with its curved horizon and delicate blue atmosphere, offers profound perspectives. These experiences deepen our cosmic understanding and underscore the human body's astonishing adaptability.</p>
           <a href="#" class="btn btn-primary">Read more</a>
         </div>
       </div>
@@ -150,12 +224,10 @@
     <div class="col">
       <!--card 4-->
       <div class="card">
-        <img src="images/zero gravity experience.jpg" class="card-img-top" alt="floating in space">
-        <div class="card-body">
-          <h5 class="card-title">Zero Gravity</h5>
-          <p class="card-text">Experiencing zero gravity in space is nothing short of exhilarating. 
-            Astronauts float effortlessly, objects hover, and everyday activities become extraordinary. 
-            It's a sensation that defies gravity and ignites the sense of wonder.</p>
+        <img src="images/jupiter-6938302_1920.jpg" class="card-img-top" alt="jupiter"  width="300" height="200">
+        <div class="card-body" >
+          <h5 class="card-title">Jupiter</h5>
+          <p class="card-text">Jupiter, the largest planet in our solar system, lacks a solid surface, consisting mainly of gaseous elements. It is renowned for its impressive storms, creating distinct bands of colorful clouds, with the Great Red Spot being the most famous, resembling a perpetual hurricane. Jupiter hosts over 70 moons, with Ganymede being larger than even the planet Mercury. Though devoid of a solid surface, Jupiter remains an intriguing celestial body for study, impossible to visit like Earth, yet captivating for its unique features and mysteries.</p>
           <a href="#" class="btn btn-primary">Read more</a>
         </div>
       </div>
@@ -164,12 +236,16 @@
     <div class="col">
       <!--card 5-->
       <div class="card">
-        <img src="images/zero gravity experience.jpg" class="card-img-top" alt="floating in space">
+        <img src="images/saturn.jpg" class="card-img-top" alt="saturn"  width="300" height="200">
         <div class="card-body">
-          <h5 class="card-title">Zero Gravity</h5>
-          <p class="card-text">Experiencing zero gravity in space is nothing short of exhilarating. 
-            Astronauts float effortlessly, objects hover, and everyday activities become extraordinary. 
-            It's a sensation that defies gravity and ignites the sense of wonder.</p>
+          <h5 class="card-title">Saturn</h5>
+          <p class="card-text">Saturn is the second-largest planet in our solar system, and it's quite impressive. 
+            Unlike Earth, it doesn't have a solid surface; instead, it's predominantly composed of gases.
+            One of the most striking features of Saturn is its stunning system of rings, which are made up of chunks of ice and rock. 
+            These rings make Saturn look like a giant cosmic hula hoop!
+            Saturn also has a multitude of moons, over 80 of them! One of its moons, called Titan, is particularly intriguing because it has a thick atmosphere and even lakes of liquid methane.
+            Visiting Saturn would be quite challenging because it doesn't offer a solid landing surface, but studying it from afar reveals its beauty and mysteries.
+            </p>
           <a href="#" class="btn btn-primary">Read more</a>
         </div>
       </div>
@@ -180,12 +256,15 @@
     <div class="col">
       <!--card 6-->
       <div class="card">
-        <img src="images/zero gravity experience.jpg" class="card-img-top" alt="floating in space">
+        <img src="images/mercury-11591_640.png" class="card-img-top" alt="mercury" width="300" height="200">
         <div class="card-body">
-          <h5 class="card-title">Zero Gravity</h5>
-          <p class="card-text">Experiencing zero gravity in space is nothing short of exhilarating. 
-            Astronauts float effortlessly, objects hover, and everyday activities become extraordinary. 
-            It's a sensation that defies gravity and ignites the sense of wonder.</p>
+          <h5 class="card-title">Mercury</h5>
+          <p class="card-text">A World of Extremes Mercury, the fastest planet in our solar system, exhibits extreme temperatures, scorching during the day and freezing at night due to its minimal atmosphere. 
+            Its surface is covered in craters, resembling the Moon's, and it has a peculiar slow rotation, taking about 59 Earth days for one complete turn. Mercury lacks moons or rings and is relatively small compared to Earth. 
+            A Giant Scar Caloris Basin, the largest crater on Mercury, boasts a diameter of approximately 1,550 kilometers (960 miles) and is situated in the planet's northern hemisphere. 
+            It formed from a massive impact event and serves as a fascinating feature that offers insights into Mercury's geological history, despite the planet's scorching temperatures. 
+            Scientists continue to study this colossal impact basin to unravel the mysteries of Mercury's past. 
+            The basin's unique geology includes intricate patterns of ridges and grooves known as tesserae, resembling a layer of peanut butter beneath a thin, strong chocolate layer on Venus.</p>
           <a href="#" class="btn btn-primary">Read more</a>
         </div>
       </div>
@@ -194,12 +273,15 @@
     <div class="col">
       <!--card 7-->
       <div class="card">
-        <img src="images/zero gravity experience.jpg" class="card-img-top" alt="floating in space">
+        <img src="images/venus-11022_1920.jpg" class="card-img-top" alt="venus" width="300" height="200">
         <div class="card-body">
-          <h5 class="card-title">Zero Gravity</h5>
-          <p class="card-text">Experiencing zero gravity in space is nothing short of exhilarating. 
-            Astronauts float effortlessly, objects hover, and everyday activities become extraordinary. 
-            It's a sensation that defies gravity and ignites the sense of wonder.</p>
+          <h5 class="card-title">Venus</h5>
+          <p class="card-text">Venus, the solar system's hottest planet, sizzles at a searing 900°F (475°C) with a noxious atmosphere laden with sulfuric acid clouds.
+             Its retrograde rotation distinguishes it, earning titles like the "Evening Star" and "Morning Star" for its dazzling brightness. 
+            This volcanic world showcases vast lava flows and imposing volcanoes but lacks water and is uninhabitable by known life forms.
+            Notable Venusian features encompass the Sacajawea crater, a tribute to the Native American guide of Lewis and Clark, Diana, a deep canyon named after the Roman goddess of hunting, Pancake Domes with flat tops and steep sides formed by thick lava, and Tick Domes, distinctive volcanoes resembling their namesake. 
+            The Tesserae Terrain exhibits intricate ridges and grooves resulting from extreme temperatures affecting rock behavior. 
+            Venus, with its extreme conditions and compelling geology, remains an entrancing celestial body in our solar system.</p>
           <a href="#" class="btn btn-primary">Read more</a>
         </div>
       </div>
@@ -208,12 +290,10 @@
     <div class="col">
       <!--card 8-->
       <div class="card">
-        <img src="images/zero gravity experience.jpg" class="card-img-top" alt="floating in space">
+        <img src="images/neptune-67537_1920.jpg" class="card-img-top" alt="neptune" width="300" height="200">
         <div class="card-body">
-          <h5 class="card-title">Zero Gravity</h5>
-          <p class="card-text">Experiencing zero gravity in space is nothing short of exhilarating. 
-            Astronauts float effortlessly, objects hover, and everyday activities become extraordinary. 
-            It's a sensation that defies gravity and ignites the sense of wonder.</p>
+          <h5 class="card-title">Neptune</h5>
+          <p class="card-text">Neptune, the eighth and farthest planet from the Sun, harbors a wealth of intriguing facts. It boasts the strongest winds in the solar system, reaching up to 1,200 miles per hour, and its distinctive blue hue comes from its atmosphere's methane content. Neptune is home to the Great Dark Spot, a massive storm system akin to Jupiter's Great Red Spot, though it can vanish and reappear over time. The planet's moon Triton is one of the few in the solar system to have a retrograde orbit, suggesting it might be a captured object. Neptune is also known for its 13 known moons, including Triton and Nereid. Despite being over 2.7 billion miles away, Neptune continues to captivate astronomers with its mysteries.</p>
           <a href="#" class="btn btn-primary">Read more</a>
         </div>
       </div>
@@ -223,7 +303,7 @@
     <div class="col">
       <!--card 9-->
       <div class="card">
-        <img src="images/kuiper belt.jpg" class="card-img-top" alt="Kuiper">
+        <img src="images/kuiper belt.jpg" class="card-img-top" alt="Kuiper" width="300" height="200">
         <div class="card-body">
           <h5 class="card-title">Kuiper Belt</h5>
           <p class="card-text">The Kuiper Belt is located in the outer solar system, extending from about 30 astronomical units (AU) to 50 AU from the Sun. 
@@ -237,49 +317,61 @@
         </div>
       </div>
     </div>
+
+    <div class="col">
+      <!--card 10-->
+      <div class="card">
+        <img src="images/uranus-5559037_1920.jpg" class="card-img-top" alt="Kuiper" width="300" height="200">
+        <div class="card-body">
+          <h5 class="card-title">Uranus</h5>
+          <p class="card-text">The Kuiper Belt is located in the outer solar system, extending from about 30 astronomical units (AU) to 50 AU from the Sun. 
+            One AU is the average distance between Earth and the Sun, approximately 93 million miles (150 million kilometers).
+            It primarily consists of icy bodies, including frozen water, methane, ammonia, and other volatile compounds, along with small amounts of rock and metal.
+            The Kuiper Belt is home to a vast number of small icy objects, including comets, asteroids, and trans-Neptunian objects. 
+            Several dwarf planets are located in the Kuiper Belt, including Pluto, Eris, Haumea, Makemake, and others.
+            Pluto was discovered in the Kuiper Belt in 1930 by American astronomer Clyde Tombaugh. 
+            It was considered the ninth planet in our solar system until its reclassification.</p>
+          <a href="#" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <h2 id="packages" class="fs-1 p-5 mt-5 mb-5 text-center">Packages</h2>
+  <h2 id="packages" class="fs-1 p-5 mt-5 mb-5 text-center">Travel Packages</h2>
 
   <div class="row">
     <div class="col">
       <!--card 1-->
-      <div class="card">
-        <img src="images/clear moon.jpg" class="card-img-top" alt="clear moon">
+      <div class="card" width=500px>
+        <img src="brochures/bronze package back.jpg" class="card-img-top" alt="Bronze back" width="600" height="600">
         <div class="card-body">
-          <h5 class="card-title">The Moon</h5>
-          <p class="card-text">The moon, Earth's celestial companion, has fascinated us for millennia. 
-            Its phases and silver glow inspire wonder. 
-            From ancient myths to modern missions, it fuels curiosity about its origins and potential for space exploration.</p>
-          <a href="#" class="btn btn-primary">Read more</a>
+          <h5 class="card-title">Bronze Package</h5>
+          <p class="card-text">Experience lunar landscapes like never before on the Moon's surface. Take a step onto the Earth's nearest neighbor and witness the awe-inspiring view of Earth from our Moonbase. This budget-friendly package offers a taste of lunar exploration that's both affordable and unforgettable.</p>
+          <a href="#" class="btn btn-primary">Book Now</a>
         </div>
       </div>
     </div>
 
     <div class="col">
       <!--card 2-->
-      <div class="card">
-        <img src="images/man on moon.jpg" class="card-img-top" alt="floating in space">
+      <div class="card" width = 500px>
+        <img src="brochures/Gold package back.jpg" class="card-img-top" alt="Gold" width="600" height="600">
         <div class="card-body">
-          <h5 class="card-title">Zero Gravity</h5>
-          <p class="card-text">Experiencing zero gravity in space is nothing short of exhilarating. 
-            Astronauts float effortlessly, objects hover, and everyday activities become extraordinary. 
-            It's a sensation that defies gravity and ignites the sense of wonder.</p>
-          <a href="#" class="btn btn-primary">Read more</a>
+          <h5 class="card-title">Gold Package</h5>
+          <p class="card-text">Embark on a thrilling journey to the heart of the asteroid belt, a realm of cosmic wonders. Join our asteroid mining expedition where you'll discover valuable space resources and even keep a small asteroid sample as a memento. This package provides an enriching adventure amidst the celestial treasures.</p>
+          <a href="#" class="btn btn-primary">Book Now</a>
         </div>
       </div>
     </div>
 
     <div class="col">
       <!--card 3-->
-      <div class="card">
-        <img src="images/mars.jpg" class="card-img-top" alt="Mars">
+      <div class="card" width=500px>
+        <img src="brochures/platinum package back.jpg" class="card-img-top" alt="platinum back" width="600" height="600">
         <div class="card-body">
-          <h5 class="card-title">Mars</h5>
-          <p class="card-text">Mars, the Red Planet, beckons with its rusty allure. 
-            A target for human exploration, it intrigues scientists and dreamers alike. 
-            Its barren landscapes hide mysteries, and it's the next frontier in our quest for understanding and potential colonization.</p>
-          <a href="#" class="btn btn-primary">Read more</a>
+          <h5 class="card-title">Platinum Package</h5>
+          <p class="card-text">Experience the ultimate cosmic adventure, journeying through our entire solar system, from the Sun's fiery embrace to the mysterious Kuiper belt. Witness awe-inspiring phenomena, land on celestial bodies, and embark on an exclusive odyssey through our celestial neighborhood, a privilege for a select few.</p>
+          <a href="#" class="btn btn-primary">Book Now</a>
         </div>
       </div>
     </div>
@@ -287,33 +379,19 @@
 
 
 <!-- about -->
-<h2 id="about" class="fs-1 p-5 mt-5 mb-5 text-center">ABOUT</h2>
+<h2 id="about" class="fs-1 p-5 mt-5 mb-5 text-center">SAFETY AND ENVIRONMENTAL TRAINING</h2>
 <div class="row">
   <div class="col-6">
     <div class="bg-secondary text-white p-5 mt-5 mb-5">
-      <h2>Rates</h2>
-      <p>We charge affordable rates according to the preffered destinations, accommodation, entertainment and length of the trip </p>
+      <h2>Safety Training</h2>
+      <p>Prepare for a safe and secure journey through our solar system with our comprehensive Safety Training. Our expert guides will equip you with essential knowledge on spacecraft safety protocols, emergency procedures, and navigation within different celestial environments. From meteor showers to cosmic radiation, we'll ensure you're ready to handle any spaceborne challenges, ensuring your trip is both thrilling and secure.</p>
     </div>
   </div>
 
   <div class="col-6">
     <div class="bg-dark-subtle p-5 mt-5 mb-5">
-      <h2>Fees</h2>
-      <p>We charge affordable rates according to the preffered destinations, accommodation, entertainment and length of the trip </p>
-    </div>
-  </div>
-
-  <div class="col-6">
-    <div class="bg-dark-subtle p-5 mt-5 mb-5">
-      <h2>Popular Sites</h2>
-      <p>We charge affordable rates according to the preffered destinations, accommodation, entertainment and length of the trip </p>
-    </div>
-  </div>
-
-  <div class="col-6">
-    <div class="bg-secondary text-white p-5 mt-5 mb-5">
-      <h2>Features</h2>
-      <p>We charge affordable rates according to the preffered destinations, accommodation, entertainment and length of the trip </p>
+      <h2>Environmental Adaptation Training</h2>
+      <p>Embark on an educational journey to acclimate yourself to the varying environments and gravities of celestial bodies. Our Environmental Adaptation Training will help you adjust to conditions ranging from the Moon's low gravity to the intense gravity of Jupiter. Gain practical insights and engage in hands-on activities to ensure a seamless transition as you explore the diverse wonders of our solar system.</p>
     </div>
   </div>
 
@@ -324,17 +402,10 @@
 <h2 id="contact" class="fs-1 p-5 mt-5 mb-5 text-center">CONTACT US</h2>
 
 <div class = "w-100 bg-dark-subtle p-5 mb-5">
-  <p>
-    Welcome to the portal that will ignite your imagination and propel you into the boundless wonders of space travel.
-    Prepare to defy gravity, explore distant galaxies, and witness the mysteries of the cosmos up close. 
-    Our mission is to take you on a voyage beyond the stars, where the sky is not the limit but just the beginning. 
-    Whether you're a seasoned astronaut or a curious dreamer, our platform is your gateway to the universe. 
-    Join us as we delve into the thrilling narratives of space exploration, cutting-edge technology, and the awe-inspiring beauty of the cosmos. 
-    Discover the latest breakthroughs, follow the journeys of intrepid astronauts, and delve into the possibilities of future interstellar adventures. 
-    Buckle up, fellow space enthusiasts! 
-    It's time to set your course for the great unknown and embark on a voyage that will expand your horizons and leave you starstruck. 
-    Welcome to the future of space travel. Welcome to infinity and beyond.
-  </p>
+  <p>Email : travelerscosmic@gmail.com </p>
+  <p>Tel: +256 771967456</p>
+  <p>Location: 123 Kampala Road, Kampala City</p>
+  
   <button type="button" class="btn btn-primary btn-lg"><a href="mailto: cosmictravelers.com" class="text-white text-decoration-none">Contact Us For More Information</a></button>
 </div>
 
@@ -346,8 +417,8 @@
 <!--End of container -->
 
 <footer class="bg-dark mt-5 p-5 text-white text-center">
-  <p>&copy; Tour The Solar System Today</p>
-  <p><a href="mailto: cosmictravelers.com" class="text_white">Email Us </a></p>
+  <p>&copy; Tour Our Solar System Today!</p>
+  <p><a href="mailto: cosmictravelers@gmail.com" class="text_white">Email Us : travelerscosmic@gmail.com </a></p>
 </footer>
 
 
